@@ -23,6 +23,10 @@ header button {
     margin: 10px;
 }
 
+#usernameDisplay {
+    display: none;
+}
+
 .modal {
     display: none;
     background-color: white;
@@ -63,5 +67,12 @@ header button {
         position: fixed;
         bottom: 10px;
         right: 10px;
+    }
+
+    #usernameDisplay {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
     }
 }
