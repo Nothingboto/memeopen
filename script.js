@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const feed = document.getElementById('feed');
     const searchBox = document.getElementById('searchBox');
     const searchBtn = document.getElementById('searchBtn');
+    const rulesBtn = document.getElementById('rulesBtn');
+    const rules = document.getElementById('rules');
+    const usernameDisplay = document.getElementById('usernameDisplay');
 
     loginBtn.addEventListener('click', () => {
         loginForm.style.display = 'block';
@@ -26,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
         displayMemes(query);
     });
 
+    rulesBtn.addEventListener('click', () => {
+        rules.style.display = 'block';
+    });
+
     document.getElementById('loginSubmit').addEventListener('click', () => {
         const username = document.getElementById('loginUsername').value;
         const password = document.getElementById('loginPassword').value;
@@ -39,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('rememberedUser', username);
             }
             loginForm.style.display = 'none';
+            usernameDisplay.textContent = `Logged in as: ${username}`;
+            usernameDisplay.style.display = 'block';
         } else {
             alert('Invalid username or password');
         }
@@ -90,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 memeElement.innerHTML = `
                     <h3>${meme.title}</h3>
                     ${meme.type === 'video' ? `<video src="${meme.src}" controls></video>` : `<img src="${meme.src}" alt="${meme.title}">`}
-                    ${meme.allowComments === 'yes' ? '<textarea placeholder="Add a comment..."></textarea>' : ''}
+                    ${meme.allowComments === 'yes' ? '<textarea placeholder="Add a comment..."></textarea><button class="commentBtn">Add Comment</button>' : ''}
                 `;
                 feed.appendChild(memeElement);
             }
