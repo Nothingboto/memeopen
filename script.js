@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
     const uploadForm = document.getElementById('uploadForm');
     const feed = document.getElementById('feed');
+    const searchBox = document.getElementById('searchBox');
+    const searchBtn = document.getElementById('searchBtn');
 
     loginBtn.addEventListener('click', () => {
         loginForm.style.display = 'block';
@@ -17,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     memePlusBtn.addEventListener('click', () => {
         uploadForm.style.display = 'block';
+    });
+
+    searchBtn.addEventListener('click', () => {
+        const query = searchBox.value.toLowerCase();
+        displayMemes(query);
     });
 
     document.getElementById('loginSubmit').addEventListener('click', () => {
@@ -73,18 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function displayMemes() {
+    function displayMemes(query = '') {
         feed.innerHTML = '';
         const memes = JSON.parse(localStorage.getItem('memes')) || [];
         memes.forEach(meme => {
-            const memeElement = document.createElement('div');
-            memeElement.className = 'meme';
-            memeElement.innerHTML = `
-                <h3>${meme.title}</h3>
-                ${meme.type === 'video' ? `<video src="${meme.src}" controls></video>` : `<img src="${meme.src}" alt="${meme.title}">`}
-                ${meme.allowComments === 'yes' ? '<textarea placeholder="Add a comment..."></textarea>' : ''}
-            `;
-            feed.appendChild(memeElement);
+            if (meme.title.toLowerCase().includes(query)) {
+                const memeElement = document.createElement('div');
+                memeElement.className = 'meme';
+                memeElement.innerHTML = `
+                    <h3>${meme.title}</h3>
+                    ${meme.type === 'video' ? `<video src="${meme.src}" controls></video>` : `<img src="${meme.src}" alt="${meme.title}">`}
+                    ${meme.allowComments === 'yes' ? '<textarea placeholder="Add a comment..."></textarea>' : ''}
+                `;
+                feed.appendChild(memeElement);
+            }
         });
     }
 
