@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeOpen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MemeOpen</h1>
+        <input type="text" id="searchBox" placeholder="Search memes...">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+    </header>
+    <main>
+        <div id="loginForm" class="modal">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <label>
+                <input type="checkbox" id="rememberMe"> Remember Me
+            </label>
+            <button id="loginSubmit">Login</button>
+        </div>
+        <div id="signupForm" class="modal">
+            <h2>Sign Up</h2>
+            <input type="text" id="signupUsername" placeholder="Username">
+            <input type="password" id="signupPassword" placeholder="Password">
+            <button id="signupSubmit">Sign Up</button>
+        </div>
+        <div id="uploadForm" class="modal">
+            <h2>Upload Meme</h2>
+            <input type="file" id="memeFile">
+            <input type="text" id="memeTitle" placeholder="Title">
+            <label>
+                Allow Comments:
+                <select id="allowComments">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </label>
+            <button id="uploadSubmit">Upload</button>
+        </div>
+        <button id="memePlusBtn">Meme +</button>
+        <div id="feed"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
