@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rulesBtn = document.getElementById('rulesBtn');
     const rules = document.getElementById('rules');
     const usernameDisplay = document.getElementById('usernameDisplay');
+    const mobileViewBtn = document.getElementById('mobileViewBtn');
 
     loginBtn.addEventListener('click', () => {
         loginForm.style.display = 'block';
@@ -31,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     rulesBtn.addEventListener('click', () => {
         rules.style.display = 'block';
+    });
+
+    mobileViewBtn.addEventListener('click', () => {
+        document.body.classList.toggle('mobile-view');
     });
 
     document.getElementById('loginSubmit').addEventListener('click', () => {
