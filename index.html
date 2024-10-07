@@ -4,60 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MemeOpen</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>MemeOpen</h1>
-        <input type="text" id="searchBox" placeholder="Search memes...">
-        <button id="searchBtn">Search</button>
-        <button id="loginBtn">Login</button>
-        <button id="signupBtn">Sign Up</button>
-        <button id="rulesBtn">Rules</button>
-        <button id="mobileViewBtn">Mobile View</button>
-        <div id="usernameDisplay"></div>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search memes...">
+            <button onclick="searchMemes()">Search</button>
+        </div>
+        <div class="auth-buttons">
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showSignUp()">Sign Up</button>
+        </div>
     </header>
     <main>
-        <div id="loginForm" class="modal">
+        <div id="feed"></div>
+        <button id="meme-upload" onclick="showUpload()">Meme +</button>
+    </main>
+    <footer>
+        <button onclick="showRules()">Rules</button>
+    </footer>
+
+    <!-- Modals for Login, Sign Up, and Upload -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('login-modal')">×</span>
             <h2>Login</h2>
-            <input type="text" id="loginUsername" placeholder="Username">
-            <input type="password" id="loginPassword" placeholder="Password">
-            <label>
-                <input type="checkbox" id="rememberMe"> Remember Me
-            </label>
-            <button id="loginSubmit">Login</button>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <label><input type="checkbox" id="remember-me"> Remember Me</label>
+            <button onclick="login()">Login</button>
         </div>
-        <div id="signupForm" class="modal">
+    </div>
+
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signup-modal')">×</span>
             <h2>Sign Up</h2>
-            <input type="text" id="signupUsername" placeholder="Username">
-            <input type="password" id="signupPassword" placeholder="Password">
-            <button id="signupSubmit">Sign Up</button>
+            <input type="text" id="signup-username" placeholder="Username">
+            <input type="password" id="signup-password" placeholder="Password">
+            <button onclick="signUp()">Sign Up</button>
         </div>
-        <div id="uploadForm" class="modal">
+    </div>
+
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('upload-modal')">×</span>
             <h2>Upload Meme</h2>
-            <input type="file" id="memeFile">
-            <input type="text" id="memeTitle" placeholder="Title">
-            <label>
-                Allow Comments:
-                <select id="allowComments">
+            <input type="file" id="meme-file">
+            <input type="text" id="meme-title" placeholder="Title">
+            <label>Allow Comments:
+                <select id="allow-comments">
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
             </label>
-            <button id="uploadSubmit">Upload</button>
+            <button onclick="uploadMeme()">Upload</button>
         </div>
-        <button id="memePlusBtn">Meme +</button>
-        <div id="feed"></div>
-        <div id="rules" class="modal">
-            <h2>Rules</h2>
-            <ul>
-                <li>No offensive content.</li>
-                <li>Respect other users.</li>
-                <li>No spamming.</li>
-                <li>Follow copyright laws.</li>
-            </ul>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
