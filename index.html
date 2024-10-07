@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeOpen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MemeOpen</h1>
+        <nav>
+            <input type="text" id="searchBox" placeholder="Search memes...">
+            <button id="searchButton">Search</button>
+            <button id="rulesButton">Rules</button>
+            <button id="mobileViewButton">Mobile View</button>
+        </nav>
+    </header>
+    <main>
+        <section id="feed">
+            <!-- Meme feed will be dynamically populated here -->
+        </section>
+        <aside id="sidebar">
+            <div id="loginSignup">
+                <h2>Login / Sign Up</h2>
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button id="rememberMe">Remember Me</button>
+                <button id="loginButton">Login</button>
+                <button id="signupButton">Sign Up</button>
+            </div>
+            <div id="uploadMeme">
+                <h2>Upload Meme</h2>
+                <input type="file" id="memeFile">
+                <input type="text" id="memeTitle" placeholder="Title">
+                <label for="commentsOption">Allow Comments:</label>
+                <select id="commentsOption">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <button id="uploadButton">Meme +</button>
+            </div>
+        </aside>
+    </main>
+    <footer>
+        <p>© 2024 MemeOpen</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
